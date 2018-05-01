@@ -11,7 +11,7 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/apex/gateway"
+	//"github.com/apex/gateway"
 	"github.com/weizhe0422/WOT_v2/connect"
 )
 
@@ -47,7 +47,7 @@ func listObjects(t *testing.T, querySQL string) []string {
 			t.Errorf("error fetching: %s", err)
 			break
 		}
-		//log.Println("rows: ", userName)
+		log.Println("rows: ", userName)
 		results = append(results, userName)
 	}
 	return results
@@ -84,7 +84,7 @@ func main() {
 		wg.Wait()
 	})
 
-	//router.Run(":8080")
-	log.Fatal(gateway.ListenAndServe(":8080", router))
+	router.Run(":8080")
+	//log.Fatal(gateway.ListenAndServe(":8080", router))
 
 }
